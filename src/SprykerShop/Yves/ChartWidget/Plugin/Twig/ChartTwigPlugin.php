@@ -5,41 +5,31 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerShop\Yves\ChartWidget\Plugin\Provider;
+namespace SprykerShop\Yves\ChartWidget\Plugin\Twig;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Spryker\Service\Container\ContainerInterface;
+use Spryker\Shared\TwigExtension\Dependency\Plugin\TwigPluginInterface;
 use Spryker\Yves\Kernel\AbstractPlugin;
 use Twig\Environment;
 
 /**
- * @deprecated Use `\SprykerShop\Yves\ChartWidget\Plugin\Twig\ChartTwigPlugin` instead.
- *
  * @method \SprykerShop\Yves\ChartWidget\ChartWidgetFactory getFactory()
  */
-class TwigChartFunctionServiceProvider extends AbstractPlugin implements ServiceProviderInterface
+class ChartTwigPlugin extends AbstractPlugin implements TwigPluginInterface
 {
     /**
-     * @param \Silex\Application $app
+     * {@inheritdoc}
      *
-     * @return void
-     */
-    public function register(Application $app): void
-    {
-        $app['twig'] = $app->share(
-            $app->extend('twig', function (Environment $twig) {
-                return $this->registerChartTwigFunctions($twig);
-            })
-        );
-    }
-
-    /**
-     * @param \Silex\Application $app
+     * @api
      *
-     * @return void
+     * @param \Twig\Environment $twig
+     * @param \Spryker\Service\Container\ContainerInterface $container
+     *
+     * @return \Twig\Environment
      */
-    public function boot(Application $app): void
+    public function extend(Environment $twig, ContainerInterface $container): Environment
     {
+        return $this->registerChartTwigFunctions($twig);
     }
 
     /**
@@ -57,7 +47,7 @@ class TwigChartFunctionServiceProvider extends AbstractPlugin implements Service
     }
 
     /**
-     * @return array
+     * @return \Twig\TwigFunction[]
      */
     protected function getChartTwigFunctions(): array
     {
