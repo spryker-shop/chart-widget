@@ -21,9 +21,6 @@ class ChartWidgetFactory extends AbstractFactory
         return $this->getProvidedDependency(ChartWidgetDependencyProvider::PLUGIN_TWIG_CHART_FUNCTIONS);
     }
 
-    /**
-     * @return \Spryker\Shared\Chart\ChartPluginCollection\ChartPluginCollectionInterface
-     */
     public function createChartPluginCollection(): ChartPluginCollectionInterface
     {
         return new ChartPluginCollection(

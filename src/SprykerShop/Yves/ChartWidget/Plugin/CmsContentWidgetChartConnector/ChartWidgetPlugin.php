@@ -15,12 +15,6 @@ use SprykerShop\Yves\CmsContentWidgetChartConnector\Dependency\Plugin\ChartWidge
  */
 class ChartWidgetPlugin extends AbstractWidgetPlugin implements ChartWidgetPluginInterface
 {
-    /**
-     * @param string $chartPluginName
-     * @param string|null $dataIdentifier
-     *
-     * @return void
-     */
     public function initialize(string $chartPluginName, ?string $dataIdentifier = null): void
     {
         $this
@@ -28,17 +22,11 @@ class ChartWidgetPlugin extends AbstractWidgetPlugin implements ChartWidgetPlugi
             ->addParameter('dataIdentifier', $dataIdentifier);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return static::NAME;
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@ChartWidget/views/chart/chart.twig';

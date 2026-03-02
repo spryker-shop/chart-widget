@@ -25,9 +25,6 @@ abstract class AbstractTwigChartPlugin extends AbstractPlugin implements TwigCha
      */
     public const TWIG_FUNCTION_NAME = 'chart';
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return static::TWIG_FUNCTION_NAME;
@@ -62,9 +59,6 @@ abstract class AbstractTwigChartPlugin extends AbstractPlugin implements TwigCha
         return $rendered;
     }
 
-    /**
-     * @return string
-     */
     abstract protected function getTemplateName(): string;
 
     /**

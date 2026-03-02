@@ -29,11 +29,6 @@ class ChartWidgetDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGIN_CHARTS = 'PLUGIN_CHARTS';
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = $this->addTwigChartFunctionPlugins($container);
@@ -42,11 +37,6 @@ class ChartWidgetDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addTwigChartFunctionPlugins(Container $container): Container
     {
         $container->set(static::PLUGIN_TWIG_CHART_FUNCTIONS, function () {
@@ -56,11 +46,6 @@ class ChartWidgetDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addChartPlugins(Container $container): Container
     {
         $container->set(static::PLUGIN_CHARTS, function () {
